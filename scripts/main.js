@@ -16,10 +16,40 @@
         var i = $(this).attr("id"),
           e = $(this).val();
         "email" == i ? window.signatures.updateField("email") : $(".signature ." + i + ",.reply-signature ." + i).text(e)
+
+        if (e.length > 0 && i == "office") {
+            $(".signature ." + i + ",.reply-signature ." + i).text("O: " + e)
+        }
+
+        if (e.length > 0 && i == "cell") {
+            $(".signature ." + i + ",.reply-signature ." + i).text("C: " + e)
+        }
+
+        if ($('.cell').text().length == 0 && $('.office').text().length == 0) {
+            $('.phone-email-divider').text('');
+        } else if ($('.cell').text().length > 0 && $('.office').text().length == 0) {
+            $('.phone-email-divider').text('');
+        } else if ($('.cell').text().length == 0 && $('.office').text().length > 0) {
+            $('.phone-email-divider').text('');
+        } else {
+            $('.phone-email-divider').text(' | ');
+        }
+
       }), $(".signature-form input").blur(function () {
         var i = $(this).attr("id"),
         e = $(this).val();
+
         e.length > 0 && ("email" == i ? window.signatures.updateField("email") : $(".signature ." + i + ",.reply-signature ." + i).text(e));
+
+        if (e.length > 0 && i == "office") {
+            $(".signature ." + i + ",.reply-signature ." + i).text("O: " + e)
+        }
+
+        if (e.length > 0 && i == "cell") {
+            $(".signature ." + i + ",.reply-signature ." + i).text("C: " + e)
+        }
+        
+
         if (e.length == 0) {
             $("." + i + "-link").attr('href','#');
         }
@@ -28,8 +58,9 @@
             $('.phone-email-divider').text('');
         } else if ($('.cell').text().length > 0 && $('.office').text().length == 0) {
             $('.phone-email-divider').text('');
-        }
-        else {
+        } else if ($('.cell').text().length == 0 && $('.office').text().length > 0) {
+            $('.phone-email-divider').text('');
+        } else {
             $('.phone-email-divider').text(' | ');
         }
       });

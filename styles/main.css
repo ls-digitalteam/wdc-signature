@@ -6955,13 +6955,13 @@ a {
   padding-top: 2rem
 }
 
-a.office-link[href^="tel:"]::before {
+/* a.office-link[href^="tel:"] span::before {
     content: 'O: ';
 }
 
-a.cell-link[href^="tel:"]::before {
+a.cell-link[href^="tel:"] span::before {
     content: 'C: ';
-}
+} */
 
 @media screen and (min-width:576px) {
   .container {

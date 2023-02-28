@@ -6954,6 +6954,15 @@ a {
   border: 1px solid #dee2e6;
   padding-top: 2rem
 }
+
+a.office-link[href^="tel:"]::before {
+    content: 'O: ';
+}
+
+a.cell-link[href^="tel:"]::before {
+    content: 'C: ';
+}
+
 @media screen and (min-width:576px) {
   .container {
     margin: 2rem auto

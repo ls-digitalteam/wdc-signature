@@ -9,7 +9,7 @@
         n = document.querySelectorAll(".signature-row ." + i),
         t = document.querySelectorAll(".signature-row ." + i + "-link");
       if (n && t)
-        for (var a = 0; a < n.length; a++) e.length > 0 ? (n[a].innerText = e, "email" == i ? t[a].setAttribute("href", "mailto:" + e) : t[a].setAttribute("href", "tel:" + e)) : n[a].innerText = ""
+        for (var a = 0; a < n.length; a++) e.length > 0 ? (t[a].setAttribute("href", "tel:" + e)) : t[a].setAttribute("href", "#");
     },
     liveForm: function () {
       $(".signature-form input").keyup(function () {
@@ -18,8 +18,20 @@
         "email" == i ? window.signatures.updateField("email") : $(".signature ." + i + ",.reply-signature ." + i).text(e)
       }), $(".signature-form input").blur(function () {
         var i = $(this).attr("id"),
-          e = $(this).val();
-        e.length > 0 && ("email" == i ? window.signatures.updateField("email") : $(".signature ." + i + ",.reply-signature ." + i).text(e))
+        e = $(this).val();
+        e.length > 0 && ("email" == i ? window.signatures.updateField("email") : $(".signature ." + i + ",.reply-signature ." + i).text(e));
+        if (e.length == 0) {
+            $("." + i + "-link").attr('href','#');
+        }
+
+        if ($('.cell').text().length == 0 && $('.office').text().length == 0) {
+            $('.phone-email-divider').text('');
+        } else if ($('.cell').text().length > 0 && $('.office').text().length == 0) {
+            $('.phone-email-divider').text('');
+        }
+        else {
+            $('.phone-email-divider').text(' | ');
+        }
       });
       new Cleave("#office", {
         delimiter: "-",

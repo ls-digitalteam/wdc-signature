@@ -1,18 +1,12 @@
 @font-face {
     font-family: gotham-bold;
-    src: url(../fonts/montserrat/Montserrat-Vold.woff) format("woff"),
-      url(../fonts/montserrat/Montserrat-Vold.ttf) format("truetype"),
-      url(../fonts/montserrat/Montserrat-Vold.woff2) format("woff2"),
-      url(../fonts/montserrat/Montserrat-Vold.eot) format("eot");
+    src: url(../fonts/montserrat/Montserrat-Vold.ttf) format("truetype");
     font-weight: 400;
     font-style: normal;
   }
   @font-face {
     font-family: montserrat-regular;
-    src: url(../fonts/montserrat/Montserrat-Regular.woff) format("woff"),
-      url(../fonts/montserrat/Montserrat-Regular.ttf) format("truetype"),
-      url(../fonts/montserrat/Montserrat-Regular.woff2) format("woff2"),
-      url(../fonts/montserrat/Montserrat-Regular.eot) format("eot");
+    src: url(../fonts/montserrat/Montserrat-Regular.ttf) format("truetype");
     font-weight: 700;
     font-style: normal;
   }
